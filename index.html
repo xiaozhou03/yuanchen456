@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宁夏苑宸建设工程咨询有限公司</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1e293b;
+            background: #ffffff;
+            line-height: 1.8;
+        }
+
+        /* ===== 导航 ===== */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .nav-wrap {
+            max-width: 1280px; margin: 0 auto; padding: 0 40px;
+            display: flex; justify-content: space-between; align-items: center; height: 72px;
+        }
+        .logo {
+            font-size: 22px; font-weight: 900; color: #1e3a5f; letter-spacing: 2px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .logo-icon {
+            width: 36px; height: 36px; background: #1e3a5f; color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 18px; border-radius: 6px;
+        }
+        .nav-links { display: flex; list-style: none; gap: 40px; }
+        .nav-links a {
+            text-decoration: none; color: #64748b; font-size: 15px; font-weight: 500;
+            transition: color 0.3s; position: relative;
+        }
+        .nav-links a:hover { color: #ea580c; }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -6px; left: 0;
+            width: 0; height: 2px; background: #ea580c; transition: width 0.3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* ===== 通用 ===== */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+        section { padding: 100px 0; }
+
+        .sec-label {
+            display: inline-block; padding: 6px 18px;
+            background: #fff7ed; color: #ea580c;
+            font-size: 13px; font-weight: 600; border-radius: 20px; letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .sec-title {
+            font-size: 40px; font-weight: 900; color: #1e3a5f;
+            margin-bottom: 16px; letter-spacing: 1px;
+        }
+        .sec-desc {
+            font-size: 17px; color: #64748b; max-width: 600px;
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #f0f9ff 100%);
+            padding-top: 72px; position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -200px; right: -200px;
+            width: 600px; height: 600px; background: rgba(234,88,12,0.06);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: -100px; left: -100px;
+            width: 400px; height: 400px; background: rgba(30,58,95,0.04);
+            border-radius: 50%;
+        }
+        .hero-grid {
+            display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 20px; background: #fff;
+            border: 1px solid #fed7aa; border-radius: 30px;
+            font-size: 14px; color: #ea580c; font-weight: 500;
+            margin-bottom: 30px; box-shadow: 0 2px 8px rgba(234,88,12,0.08);
+        }
+        .hero-badge::before {
+            content: ''; width: 8px; height: 8px; background: #22c55e;
+            border-radius: 50%; animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .hero h1 {
+            font-size: 56px; font-weight: 900; color: #1e3a5f;
+            line-height: 1.2; margin-bottom: 24px; letter-spacing: 2px;
+        }
+        .hero h1 span { color: #ea580c; }
+        .hero-sub {
+            font-size: 20px; color: #475569; margin-bottom: 16px; font-weight: 400;
+        }
+        .hero-motto {
+            font-size: 16px; color: #94a3b8; letter-spacing: 6px; margin-bottom: 40px;
+        }
+        .hero-btns { display: flex; gap: 16px; }
+        .btn-primary {
+            padding: 14px 36px; background: #ea580c; color: #fff;
+            text-decoration: none; border-radius: 8px; font-weight: 600;
+            font-size: 15px; transition: all 0.3s; display: inline-block;
+            box-shadow: 0 4px 14px rgba(234,88,12,0.3);
+        }
+        .btn-primary:hover {
+            background: #c2410c; transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(234,88,12,0.4);
+        }
+        .btn-outline {
+            padding: 14px 36px; background: transparent; color: #1e3a5f;
+            text-decoration: none; border-radius: 8px; font-weight: 600;
+            font-size: 15px; border: 2px solid #cbd5e1;
+            transition: all 0.3s; display: inline-block;
+        }
+        .btn-outline:hover { border-color: #ea580c; color: #ea580c; }
+
+        /* Hero 右侧装饰 */
+        .hero-deco {
+            position: relative; height: 400px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .deco-ring {
+            position: absolute; border-radius: 50%;
+            border: 2px solid rgba(30,58,95,0.1);
+        }
+        .deco-ring-1 { width: 320px; height: 320px; }
+        .deco-ring-2 { width: 240px; height: 240px; border-color: rgba(234,88,12,0.15); }
+        .deco-ring-3 { width: 160px; height: 160px; background: linear-gradient(135deg, #1e3a5f, #334155); }
+        .deco-center {
+            position: relative; z-index: 2; text-align: center; color: #fff;
+        }
+        .deco-center .num { font-size: 48px; font-weight: 900; }
+        .deco-center .txt { font-size: 14px; opacity: 0.8; letter-spacing: 2px; }
+        .deco-dot {
+            position: absolute; width: 12px; height: 12px;
+            background: #ea580c; border-radius: 50%;
+        }
+        .deco-dot-1 { top: 20px; left: 50%; transform: translateX(-50%); }
+        .deco-dot-2 { bottom: 20px; left: 50%; transform: translateX(-50%); }
+        .deco-dot-3 { left: 20px; top: 50%; transform: translateY(-50%); }
+        .deco-dot-4 { right: 20px; top: 50%; transform: translateY(-50%); }
+
+        /* ===== 数据统计条 ===== */
+        .stats-bar {
+            background: #1e3a5f; padding: 50px 0; margin-top: -1px;
+        }
+        .stats-bar-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+        }
+        .stats-bar-item { text-align: center; color: #fff; }
+        .stats-bar-item .num {
+            font-size: 42px; font-weight: 900; color: #fff;
+            margin-bottom: 8px;
+        }
+        .stats-bar-item .num span { color: #fb923c; font-size: 24px; }
+        .stats-bar-item .txt { font-size: 15px; color: #94a3b8; }
+
+        /* ===== 关于 ===== */
+        .about { background: #fff; }
+        .about-header { text-align: center; margin-bottom: 60px; }
+        .about-header .sec-desc { margin: 0 auto; }
+
+        .about-cards {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+        }
+        .about-card {
+            padding: 40px 32px; border-radius: 16px;
+            border: 1px solid #f1f5f9; transition: all 0.3s;
+            position: relative; overflow: hidden;
+        }
+        .about-card::before {
+            content: ''; position: absolute; top: 0; left: 0;
+            width: 100%; height: 4px; background: #ea580c;
+            transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+        }
+        .about-card:hover::before { transform: scaleX(1); }
+        .about-card:hover {
+            border-color: #fed7aa; box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            transform: translateY(-4px);
+        }
+        .about-card-icon {
+            width: 56px; height: 56px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; margin-bottom: 20px;
+        }
+        .about-card:nth-child(1) .about-card-icon { background: #fff7ed; }
+        .about-card:nth-child(2) .about-card-icon { background: #eff6ff; }
+        .about-card:nth-child(3) .about-card-icon { background: #f0fdf4; }
+        .about-card h3 {
+            font-size: 20px; font-weight: 700; color: #1e3a5f; margin-bottom: 12px;
+        }
+        .about-card p {
+            font-size: 15px; color: #64748b; line-height: 1.8;
+        }
+
+        /* ===== 服务 ===== */
+        .services { background: #f8fafc; }
+        .services-header { display: flex; justify-content: space-between; align-items: end; margin-bottom: 50px; }
+
+        .services-list { display: flex; flex-direction: column; gap: 16px; }
+        .service-row {
+            display: grid; grid-template-columns: 80px 1fr 200px 150px;
+            align-items: center; padding: 28px 32px;
+            background: #fff; border-radius: 12px;
+            border: 1px solid #e2e8f0; transition: all 0.3s; cursor: default;
+        }
+        .service-row:hover {
+            border-color: #fed7aa; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transform: translateX(8px);
+        }
+        .service-num {
+            font-size: 28px; font-weight: 900; color: #ea580c; opacity: 0.3;
+        }
+        .service-row:hover .service-num { opacity: 1; }
+        .service-info h4 { font-size: 18px; font-weight: 700; color: #1e3a5f; margin-bottom: 6px; }
+        .service-info p { font-size: 14px; color: #94a3b8; }
+        .service-tag {
+            padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500;
+            text-align: center;
+        }
+        .tag-orange { background: #fff7ed; color: #ea580c; }
+        .tag-blue { background: #eff6ff; color: #2563eb; }
+        .tag-green { background: #f0fdf4; color: #16a34a; }
+        .service-arrow {
+            text-align: right; color: #cbd5e1; font-size: 20px; transition: color 0.3s;
+        }
+        .service-row:hover .service-arrow { color: #ea580c; }
+
+        /* ===== 文化 ===== */
+        .culture { background: #fff; }
+        .culture-header { text-align: center; margin-bottom: 60px; }
+        .culture-header .sec-desc { margin: 0 auto; }
+
+        .culture-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+        }
+        .culture-card {
+            text-align: center; padding: 48px 24px;
+            border-radius: 16px; transition: all 0.3s;
+            position: relative;
+        }
+        .culture-card:nth-child(1) { background: linear-gradient(135deg, #fff7ed, #ffedd5); }
+        .culture-card:nth-child(2) { background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+        .culture-card:nth-child(3) { background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
+        .culture-card:nth-child(4) { background: linear-gradient(135deg, #fefce8, #fef9c3); }
+        .culture-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+        .culture-icon {
+            width: 72px; height: 72px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px; font-size: 28px; font-weight: 900;
+        }
+        .culture-card:nth-child(1) .culture-icon { background: #fff; color: #ea580c; }
+        .culture-card:nth-child(2) .culture-icon { background: #fff; color: #2563eb; }
+        .culture-card:nth-child(3) .culture-icon { background: #fff; color: #16a34a; }
+        .culture-card:nth-child(4) .culture-icon { background: #fff; color: #ca8a04; }
+        .culture-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+        .culture-card p { font-size: 14px; color: #64748b; line-height: 1.7; }
+
+        .culture-bottom {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+            margin-top: 40px;
+        }
+        .culture-info {
+            padding: 32px; background: #f8fafc; border-radius: 12px;
+            border-left: 4px solid #ea580c;
+        }
+        .culture-info h4 { font-size: 13px; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        .culture-info p { font-size: 17px; font-weight: 600; color: #1e3a5f; }
+
+        /* ===== 团队 ===== */
+        .team { background: #f8fafc; }
+        .team-header { text-align: center; margin-bottom: 60px; }
+        .team-header .sec-desc { margin: 0 auto; }
+
+        .team-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+        }
+        .team-card {
+            background: #fff; padding: 36px 24px; border-radius: 16px;
+            text-align: center; transition: all 0.3s;
+            border: 1px solid #f1f5f9;
+        }
+        .team-card:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08); transform: translateY(-6px);
+            border-color: #fed7aa;
+        }
+        .team-avatar {
+            width: 80px; height: 80px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px; font-size: 28px; font-weight: 700;
+            background: linear-gradient(135deg, #1e3a5f, #334155); color: #fff;
+        }
+        .team-card:nth-child(2) .team-avatar { background: linear-gradient(135deg, #ea580c, #fb923c); }
+        .team-card:nth-child(3) .team-avatar { background: linear-gradient(135deg, #2563eb, #60a5fa); }
+        .team-card:nth-child(4) .team-avatar { background: linear-gradient(135deg, #16a34a, #4ade80); }
+        .team-card:nth-child(5) .team-avatar { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+        .team-card:nth-child(6) .team-avatar { background: linear-gradient(135deg, #dc2626, #f87171); }
+        .team-card:nth-child(7) .team-avatar { background: linear-gradient(135deg, #0891b2, #22d3ee); }
+        .team-card:nth-child(8) .team-avatar { background: linear-gradient(135deg, #be123c, #fb7185); }
+        .team-card h4 { font-size: 18px; font-weight: 700; color: #1e3a5f; margin-bottom: 6px; }
+        .team-role { font-size: 13px; color: #ea580c; font-weight: 600; margin-bottom: 8px; }
+        .team-cert { font-size: 13px; color: #94a3b8; }
+
+        /* ===== 业绩 ===== */
+        .achievements { background: #fff; }
+        .ach-header { display: flex; justify-content: space-between; align-items: end; margin-bottom: 50px; }
+
+        .ach-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+        .ach-table thead th {
+            padding: 16px 24px; text-align: left; font-size: 13px;
+            color: #94a3b8; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+        }
+        .ach-table thead th:last-child { text-align: right; }
+        .ach-table tbody tr {
+            background: #f8fafc; transition: all 0.3s;
+        }
+        .ach-table tbody tr:hover { background: #fff7ed; }
+        .ach-table tbody td {
+            padding: 20px 24px; font-size: 15px; border: none;
+        }
+        .ach-table tbody td:first-child { border-radius: 10px 0 0 10px; }
+        .ach-table tbody td:last-child { border-radius: 0 10px 10px 0; text-align: right; }
+        .ach-num { font-size: 13px; color: #cbd5e1; font-weight: 700; }
+        .ach-year { font-size: 13px; color: #ea580c; font-weight: 600; }
+        .ach-name { font-weight: 500; color: #1e3a5f; }
+        .ach-type {
+            display: inline-block; padding: 4px 12px; border-radius: 20px;
+            font-size: 12px; font-weight: 500;
+        }
+        .type-blue { background: #eff6ff; color: #2563eb; }
+        .type-green { background: #f0fdf4; color: #16a34a; }
+        .type-orange { background: #fff7ed; color: #ea580c; }
+        .type-purple { background: #faf5ff; color: #9333ea; }
+        .ach-amount { font-weight: 700; color: #1e3a5f; font-size: 16px; }
+
+        /* ===== 联系 ===== */
+        .contact { background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); color: #fff; }
+        .contact-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+        }
+        .contact-left h2 {
+            font-size: 40px; font-weight: 900; margin-bottom: 16px; letter-spacing: 1px;
+        }
+        .contact-left > p { color: #94a3b8; margin-bottom: 50px; font-size: 17px; }
+        .contact-item { display: flex; gap: 20px; margin-bottom: 32px; }
+        .contact-icon {
+            width: 52px; height: 52px; border-radius: 12px;
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; flex-shrink: 0;
+        }
+        .contact-item h4 { font-size: 13px; color: #64748b; margin-bottom: 6px; letter-spacing: 1px; }
+        .contact-item p { font-size: 16px; color: #e2e8f0; line-height: 1.6; }
+
+        .contact-form {
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px; padding: 48px;
+        }
+        .contact-form h3 { font-size: 24px; font-weight: 700; margin-bottom: 32px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block; font-size: 13px; color: #94a3b8; margin-bottom: 8px; letter-spacing: 1px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;
+            color: #fff; font-family: inherit; font-size: 15px;
+            transition: all 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none; border-color: #ea580c; background: rgba(255,255,255,0.1);
+        }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: #475569; }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .submit-btn {
+            width: 100%; padding: 16px; background: #ea580c; color: #fff;
+            border: none; border-radius: 10px; font-size: 16px; font-weight: 600;
+            cursor: pointer; transition: all 0.3s; margin-top: 8px;
+        }
+        .submit-btn:hover { background: #c2410c; transform: translateY(-2px); }
+
+        /* ===== Footer ===== */
+        footer { background: #0f172a; color: #64748b; padding: 60px 0 30px; }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 50px;
+        }
+        .footer-brand .logo { color: #fff; margin-bottom: 16px; }
+        .footer-brand p { font-size: 14px; line-height: 1.8; }
+        .footer-title { font-size: 13px; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #64748b; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        .footer-links a:hover { color: #ea580c; }
+        .footer-bottom {
+            border-top: 1px solid #1e293b; padding-top: 24px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-bottom p { font-size: 13px; }
+        .footer-motto { color: #ea580c; letter-spacing: 4px; font-size: 13px; }
+
+        /* ===== 动画 ===== */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.7s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-deco { display: none; }
+            .hero-btns { justify-content: center; }
+            .about-cards, .culture-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .service-row { grid-template-columns: 60px 1fr; }
+            .service-tag, .service-arrow { display: none; }
+        }
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 36px; }
+            .sec-title { font-size: 28px; }
+            .about-cards, .culture-grid, .team-grid, .culture-bottom { grid-template-columns: 1fr; }
+            .stats-bar-grid { grid-template-columns: repeat(2, 1fr); }
+            .ach-table thead { display: none; }
+            .ach-table tbody tr { display: block; margin-bottom: 12px; border-radius: 10px; }
+            .ach-table tbody td { display: flex; justify-content: space-between; padding: 12px 16px; }
+            .ach-table tbody td:first-child { border-radius: 10px 10px 0 0; }
+            .ach-table tbody td:last-child { border-radius: 0 0 10px 10px; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-grid, .footer-bottom { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 导航 -->
+<nav>
+    <div class="nav-wrap">
+        <div class="logo"><div class="logo-icon">苑</div>苑宸建设</div>
+        <ul class="nav-links">
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#services">业务范围</a></li>
+            <li><a href="#culture">企业文化</a></li>
+            <li><a href="#team">专业团队</a></li>
+            <li><a href="#achievements">业绩展示</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-grid">
+            <div>
+                <div class="hero-badge">造价咨询乙级资质</div>
+                <h1>宁夏苑宸<br><span>建设工程咨询</span></h1>
+                <p class="hero-sub">工程造价咨询 · 招标代理 · 项目评估 · 工程项目管理</p>
+                <p class="hero-motto">诚心 · 诚信 · 专业 · 专注 · 共创 · 共赢</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn-primary">立即咨询</a>
+                    <a href="#about" class="btn-outline">了解更多</a>
+                </div>
+            </div>
+            <div class="hero-deco">
+                <div class="deco-ring deco-ring-1"></div>
+                <div class="deco-ring deco-ring-2"></div>
+                <div class="deco-ring deco-ring-3">
+                    <div class="deco-center">
+                        <div class="num">5+</div>
+                        <div class="txt">年专业经验</div>
+                    </div>
+                </div>
+                <div class="deco-dot deco-dot-1"></div>
+                <div class="deco-dot deco-dot-2"></div>
+                <div class="deco-dot deco-dot-3"></div>
+                <div class="deco-dot deco-dot-4"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 数据统计 -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-bar-grid">
+            <div class="stats-bar-item">
+                <div class="num">10<span>+</span></div>
+                <div class="txt">专业造价人员</div>
+            </div>
+            <div class="stats-bar-item">
+                <div class="num">6</div>
+                <div class="txt">一级造价工程师</div>
+            </div>
+            <div class="stats-bar-item">
+                <div class="num">56<span>+</span></div>
+                <div class="txt">完成项目</div>
+            </div>
+            <div class="stats-bar-item">
+                <div class="num">100<span>万</span></div>
+                <div class="txt">注册资金</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 关于 -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-header reveal">
+            <div class="sec-label">关于苑宸</div>
+            <h2 class="sec-title">专业 · 诚信 · 高效</h2>
+            <p class="sec-desc">经银川市审批服务管理局核准的专业化项目管理咨询公司，致力于为客户提供优质、高效的工程造价咨询服务</p>
+        </div>
+        <div class="about-cards">
+            <div class="about-card reveal">
+                <div class="about-card-icon">🏢</div>
+                <h3>公司概况</h3>
+                <p>成立于2020年，注册资金100万元，位于银川市金凤区万达中心B座619室，办公面积200余平方米，环境优雅，交通便利。</p>
+            </div>
+            <div class="about-card reveal">
+                <div class="about-card-icon">⚖️</div>
+                <h3>资质认证</h3>
+                <p>拥有造价咨询乙级执业资质，配备完整的工程计量、计价软件，涵盖建筑、装饰、安装、通信、市政、园林、水利、公路各领域。</p>
+            </div>
+            <div class="about-card reveal">
+                <div class="about-card-icon">👥</div>
+                <h3>专业团队</h3>
+                <p>造价人员10名，其中国家注册一级造价工程师6人，高级工程师4人，中级工程师4人，各领域专业人员齐备。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 服务 -->
+<section class="services" id="services">
+    <div class="container">
+        <div class="services-header reveal">
+            <div>
+                <div class="sec-label">业务范围</div>
+                <h2 class="sec-title">全方位咨询服务</h2>
+            </div>
+            <p class="sec-desc">涵盖工程造价全生命周期</p>
+        </div>
+        <div class="services-list">
+            <div class="service-row reveal">
+                <div class="service-num">01</div>
+                <div class="service-info">
+                    <h4>工程造价咨询</h4>
+                    <p>建设项目概预算编制与审核，配合设计方案比选、优化设计、限额设计进行造价分析与控制</p>
+                </div>
+                <div class="service-tag tag-orange">核心服务</div>
+                <div class="service-arrow">→</div>
+            </div>
+            <div class="service-row reveal">
+                <div class="service-num">02</div>
+                <div class="service-info">
+                    <h4>招标代理服务</h4>
+                    <p>招标工程量清单和标底、投标报价的编制和审核，政府采购代理服务</p>
+                </div>
+                <div class="service-tag tag-blue">代理服务</div>
+                <div class="service-arrow">→</div>
+            </div>
+            <div class="service-row reveal">
+                <div class="service-num">03</div>
+                <div class="service-info">
+                    <h4>投资估算编制</h4>
+                    <p>项目建议书及可行性研究投资估算、项目经济评价报告的编制和审核</p>
+                </div>
+                <div class="service-tag tag-green">前期咨询</div>
+                <div class="service-arrow">→</div>
+            </div>
+            <div class="service-row reveal">
+                <div class="service-num">04</div>
+                <div class="service-info">
+                    <h4>合同价款管理</h4>
+                    <p>合同价款签订与调整，工程变更、洽商和索赔费用计算及工程款支付</p>
+                </div>
+                <div class="service-tag tag-orange">过程管理</div>
+                <div class="service-arrow">→</div>
+            </div>
+            <div class="service-row reveal">
+                <div class="service-num">05</div>
+                <div class="service-info">
+                    <h4>结算审核服务</h4>
+                    <p>工程结算及竣工结（决）算报告编制与审核，造价经济纠纷鉴定和仲裁咨询</p>
+                </div>
+                <div class="service-tag tag-blue">后期服务</div>
+                <div class="service-arrow">→</div>
+            </div>
+            <div class="service-row reveal">
+                <div class="service-num">06</div>
+                <div class="service-info">
+                    <h4>全过程项目管理</h4>
+                    <p>建设项目组织实施全过程或若干阶段的管理和服务，编制项目建议书和可行性研究报告</p>
+                </div>
+                <div class="service-tag tag-green">全周期</div>
+                <div class="service-arrow">→</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 文化 -->
+<section class="culture" id="culture">
+    <div class="container">
+        <div class="culture-header reveal">
+            <div class="sec-label">企业文化</div>
+            <h2 class="sec-title">价值观驱动</h2>
+            <p class="sec-desc">以诚信为先导，以公正为基础，以求实为要求，以创新为保障</p>
+        </div>
+        <div class="culture-grid">
+            <div class="culture-card reveal">
+                <div class="culture-icon">诚</div>
+                <h3>诚信</h3>
+                <p>先做人，后做事<br>信誉为首，以诚相待</p>
+            </div>
+            <div class="culture-card reveal">
+                <div class="culture-icon">公</div>
+                <h3>公正</h3>
+                <p>秉持公心，遵纪守法<br>规范办事，公正办事</p>
+            </div>
+            <div class="culture-card reveal">
+                <div class="culture-icon">实</div>
+                <h3>求实</h3>
+                <p>工作务实，踏实稳健<br>严谨，实效，适用</p>
+            </div>
+            <div class="culture-card reveal">
+                <div class="culture-icon">新</div>
+                <h3>创新</h3>
+                <p>双赢合作，积极进取<br>开拓创新，追求卓越</p>
+            </div>
+        </div>
+        <div class="culture-bottom">
+            <div class="culture-info reveal">
+                <h4>企业宗旨</h4>
+                <p>诚信公正、求实创新、精品高效</p>
+            </div>
+            <div class="culture-info reveal">
+                <h4>企业精神</h4>
+                <p>诚心诚信 · 专业专注 · 共创共赢</p>
+            </div>
+            <div class="culture-info reveal">
+                <h4>经营理念</h4>
+                <p>科学、严谨、务实、求新</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 团队 -->
+<section class="team" id="team">
+    <div class="container">
+        <div class="team-header reveal">
+            <div class="sec-label">专业团队</div>
+            <h2 class="sec-title">核心成员</h2>
+            <p class="sec-desc">经验丰富、技术精湛的专业人才队伍</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card reveal">
+                <div class="team-avatar">石</div>
+                <h4>石鑫</h4>
+                <p class="team-role">技术负责人</p>
+                <p class="team-cert">高级工程师 / 一级造价工程师</p>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-avatar">张</div>
+                <h4>张玉龙</h4>
+                <p class="team-role">负责人</p>
+                <p class="team-cert">中级工程师 / 一级造价工程师</p>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-avatar">雷</div>
+                <h4>雷颖</h4>
+                <p class="team-role">高级工程师</p>
+                <p class="team-cert">一级造价工程师</p>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-avatar">马</div>
+                <h4>马军贤</h4>
+                <p class="team-role">高级工程师</p>
+                <p class="team-cert">一级造价工程师</p>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-avatar">马</div>
+                <h4>马晓萍</h4>
+                <p class="team-role">中级工程师</p>
+                <p class="team-cert">一/二级造价工程师</p>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-avatar">张</div>
+                <h4>张树高</h4>
+                <p class="team-role">高级工程师</p>
+                <p class="team-cert">一级造价工程师</p>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-avatar">马</div>
+                <h4>马刚</h4>
+                <p class="team-role">中级工程师</p>
+                <p class="team-cert">一/二级造价/建造工程师</p>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-avatar">徐</div>
+                <h4>徐灏蕾</h4>
+                <p class="team-role">中级工程师</p>
+                <p class="team-cert">一级造价工程师</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 业绩 -->
+<section class="achievements" id="achievements">
+    <div class="container">
+        <div class="ach-header reveal">
+            <div>
+                <div class="sec-label">业绩展示</div>
+                <h2 class="sec-title">代表项目</h2>
+            </div>
+            <p class="sec-desc">近年部分业绩一览</p>
+        </div>
+        <table class="ach-table reveal">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>年份</th>
+                    <th>项目名称</th>
+                    <th>咨询类型</th>
+                    <th>金额</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="ach-num">01</span></td>
+                    <td><span class="ach-year">2024</span></td>
+                    <td class="ach-name">同心县2024年河西镇现代高效节水农业项目</td>
+                    <td><span class="ach-type type-blue">控制价编制</span></td>
+                    <td class="ach-amount">26,978.25万</td>
+                </tr>
+                <tr>
+                    <td><span class="ach-num">02</span></td>
+                    <td><span class="ach-year">2024</span></td>
+                    <td class="ach-name">苦水河（吴忠市同心县段）防洪治理工程</td>
+                    <td><span class="ach-type type-blue">控制价编制</span></td>
+                    <td class="ach-amount">23,624.82万</td>
+                </tr>
+                <tr>
+                    <td><span class="ach-num">03</span></td>
+                    <td><span class="ach-year">2024</span></td>
+                    <td class="ach-name">同心县2023年韦州镇现代高效节水农业项目</td>
+                    <td><span class="ach-type type-purple">全过程跟踪审核</span></td>
+                    <td class="ach-amount">14,975.17万</td>
+                </tr>
+                <tr>
+                    <td><span class="ach-num">04</span></td>
+                    <td><span class="ach-year">2024</span></td>
+                    <td class="ach-name">红寺堡扬水-同心县韦州调蓄水设施工程</td>
+                    <td><span class="ach-type type-purple">全过程跟踪审核</span></td>
+                    <td class="ach-amount">9,298.80万</td>
+                </tr>
+                <tr>
+                    <td><span class="ach-num">05</span></td>
+                    <td><span class="ach-year">2021</span></td>
+                    <td class="ach-name">同心中学分校区建设项目</td>
+                    <td><span class="ach-type type-orange">控制价审核</span></td>
+                    <td class="ach-amount">9,496.74万</td>
+                </tr>
+                <tr>
+                    <td><span class="ach-num">06</span></td>
+                    <td><span class="ach-year">2022</span></td>
+                    <td class="ach-name">同心县人民医院下马关分院建设项目</td>
+                    <td><span class="ach-type type-blue">控制价编制</span></td>
+                    <td class="ach-amount">8,032.37万</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- 联系 -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-left reveal">
+                <h2>期待与您<br>合作</h2>
+                <p>欢迎政府领导、企业家、社会各界知名人士前来指导工作，我们将竭诚为您提供优质服务。</p>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>ADDRESS</h4>
+                        <p>宁夏银川市金凤区亲水大街东侧<br>银川万达中心3号公寓619室</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h4>PHONE</h4>
+                        <p>0951-8560038</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <h4>EMAIL</h4>
+                        <p>309009794@qq.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🏦</div>
+                    <div>
+                        <h4>BANK</h4>
+                        <p>中国工商银行银川长城路支行<br>2902002509200085171</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form reveal">
+                <h3>在线咨询</h3>
+                <form onsubmit="event.preventDefault(); alert('感谢您的留言，我们会尽快与您联系！');">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>姓名</label>
+                            <input type="text" placeholder="请输入姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <label>电话</label>
+                            <input type="tel" placeholder="请输入电话" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>邮箱</label>
+                        <input type="email" placeholder="请输入电子邮箱">
+                    </div>
+                    <div class="form-group">
+                        <label>留言</label>
+                        <textarea placeholder="请描述您的咨询需求"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">提交咨询</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo"><div class="logo-icon">苑</div>苑宸建设</div>
+                <p>宁夏苑宸建设工程咨询有限公司是经银川市审批服务管理局核准的专业化项目管理咨询公司，拥有造价咨询乙级执业资质。</p>
+            </div>
+            <div>
+                <div class="footer-title">导航</div>
+                <ul class="footer-links">
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#services">业务范围</a></li>
+                    <li><a href="#team">专业团队</a></li>
+                    <li><a href="#achievements">业绩展示</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-title">服务</div>
+                <ul class="footer-links">
+                    <li><a href="#services">工程造价咨询</a></li>
+                    <li><a href="#services">招标代理服务</a></li>
+                    <li><a href="#services">投资估算编制</a></li>
+                    <li><a href="#services">全过程项目管理</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-title">联系</div>
+                <ul class="footer-links">
+                    <li><a href="#">0951-8560038</a></li>
+                    <li><a href="#">309009794@qq.com</a></li>
+                    <li><a href="#">银川市金凤区万达中心B座619室</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>宁夏苑宸建设工程咨询有限公司 版权所有 | 营业执照号：91640100MA76L46RXW</p>
+            <p class="footer-motto">诚心 · 诚信 · 专业 · 专注 · 共创 · 共赢</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // 滚动动画
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
